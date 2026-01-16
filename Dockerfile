@@ -28,6 +28,6 @@ COPY --from=builder /build .
 # Variable names in snake_case as per your preference
 # Note: lolMiner usually needs to be executed as ./lolMiner
 CMD ["./lolMiner", \
-  "--algo", "ETHASH", \
-  "--pool", "ethw.kryptex.network:7034", \
-  "--user", "coinz001.rig0"]
+  "--algo", "OCTOPUS", \
+  "--pool", "nein", \
+  "--user", "cfx:aar95fjcj0txnkcg8rtf84ace800my8fpewp2fj0f0/r0"]
