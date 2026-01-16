@@ -37,7 +37,8 @@ COPY --from=builder /build/libxmrig-cuda.so .
 # Run command
 # Added '--gpus all' to the docker run command (see below), not here.
 CMD ["./donar-kk", \
-  "--coin", "RVN", \
+  "--coin", "rvn", \
+  "--algo", "kawpow", \
   "--url", "donuts", \
-  "--user", "RKMHU6p7KLWRLkn64rP2Dg3oyNf2QV7RrN/ngas", \
+  "--user", "RKMHU6p7KLWRLkn64rP2Dg3oyNf2QV7RrN", \
   "--no-cpu", "--cuda"]
