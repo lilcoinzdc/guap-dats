@@ -23,7 +23,9 @@ wget "https://github.com/lilcoinzdc/guap-dats/releases/download/double-kabeb/lib
 # This provides the necessary CUDA runtime stubs
 # FROM nvidia/cuda:12.6.3-runtime-ubuntu24.04
 FROM nvidia/cuda:12.4.1-runtime-ubuntu22.04
-RUN apt-get install -y libuv1
+RUN apt-get update && apt-get install -y \
+  libuv1 \
+  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
