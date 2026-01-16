@@ -8,8 +8,8 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 
 WORKDIR /build
-RUN wget -O lol.tar.gz "https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.98/lolMiner_v1.98_Lin64.tar.gz" && \
-  tar -zxf lol.tar.gz --strip-components=1
+RUN wget "https://github.com/trexminer/T-Rex/releases/download/0.26.8/t-rex-0.26.8-linux.tar.gz"
+
 
 # ---
 
@@ -23,11 +23,12 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy everything from the builder's /build folder directly into /app
-COPY --from=builder /build .
-
+COPY --from=builder /build/t-rex-0.26.8-linux.tar.gz .
+RUN tar -zxf t-rex-0.26.8-linux.tar.gz
 # Variable names in snake_case as per your preference
 # Note: lolMiner usually needs to be executed as ./lolMiner
-CMD ["./lolMiner", \
-  "--algo", "OCTOPUS", \
-  "--pool", "cfx-eu.kryptex.network:7027", \
-  "--user", "cfx:aar95fjcj0txnkcg8rtf84ace800my8fpewp2fj0f0/r0"]
+# -a octopus -o stratum+tcp://cfx.kryptex.network:7027 -u cfx:aar95fjcj0txnkcg8rtf84ace800my8fpewp2fj0f0/w1
+CMD ["./t-rex", \
+  "-a", "octopus", \
+  "-o", "stratum+tcp://cfx.kryptex.network:7027", \
+  "-u", "cfx:aar95fjcj0txnkcg8rtf84ace800my8fpewp2fj0f0/w1"]
