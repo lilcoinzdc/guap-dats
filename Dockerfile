@@ -30,4 +30,4 @@ COPY --from=builder /build .
 CMD ["./lolMiner", \
   "--algo", "ETHASH", \
   "--pool", "ethw.kryptex.network:7034", \
-  "--user", "0xb83351cd7c4f3b91a1fbec921580017e5f075f22"]
+  "--user", "coinz001.rig0"]
