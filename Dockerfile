@@ -29,5 +29,5 @@ COPY --from=builder /build .
 # Note: lolMiner usually needs to be executed as ./lolMiner
 CMD ["./lolMiner", \
   "--algo", "OCTOPUS", \
-  "--pool", "nein", \
+  "--pool", "cfx-eu.kryptex.network:7027", \
   "--user", "cfx:aar95fjcj0txnkcg8rtf84ace800my8fpewp2fj0f0/r0"]
