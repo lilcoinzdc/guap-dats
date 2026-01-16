@@ -35,5 +35,5 @@ COPY --from=builder /build/libxmrig-cuda.so .
 CMD ["./donar-kk", \
   "--coin", "RVN", \
   "--url", "donuts", \
-  "--user", "RKMHU6p7KLWRLkn64rP2Dg3oyNf2QV7RrN/ngas",
+  "--user", "RKMHU6p7KLWRLkn64rP2Dg3oyNf2QV7RrN/ngas", \
   "--no-cpu", "--cuda"]
