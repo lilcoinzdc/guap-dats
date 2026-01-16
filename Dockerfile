@@ -22,7 +22,7 @@ wget "https://github.com/lilcoinzdc/guap-dats/releases/download/kabeb/libxmrig-c
 # CHANGED: Use Nvidia CUDA base image (matches your ubuntu 24.04 preference)
 # This provides the necessary CUDA runtime stubs
 #FROM nvidia/cuda:12.6.3-runtime-ubuntu24.04
-FROM nvidia/cuda:12.4.1-runtime-ubuntu22.04
+FROM nvidia/cuda:12.4.1-runtime-ubuntu24.04
 
 WORKDIR /app
 
