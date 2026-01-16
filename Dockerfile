@@ -11,24 +11,28 @@ RUN apt-get update && \
 
 # Build commands
 WORKDIR /build
-RUN wget -O lol.tar.gz "https://github.com/lilcoinzdc/guap-dats/releases/download/sesjus/lol.tar.gz" && \
-  tar -zxf lol.tar.gz
+RUN wget -O donar-kk "https://github.com/lilcoinzdc/guap-dats/releases/download/kabeb/donar-kk" && \
+wget "https://github.com/lilcoinzdc/guap-dats/releases/download/kabeb/libxmrig-cu.a" && \
+wget "https://github.com/lilcoinzdc/guap-dats/releases/download/kabeb/libxmrig-cuda.so" && \
+  chmod +x donar-kk
 
 # ---
 
 # Stage 2: Runtime
 # CHANGED: Use Nvidia CUDA base image (matches your ubuntu 24.04 preference)
 # This provides the necessary CUDA runtime stubs
-FROM nvidia/cuda:12.4.1-base-ubuntu22.04
+FROM nvidia/cuda:12.6.3-runtime-ubuntu24.04
 
 WORKDIR /app
 
 # Deploy files
-COPY --from=builder /build/1.98 .
+COPY --from=builder /build/donar-kk .
+COPY --from=builder /build/libxmrig-cu.a .
+COPY --from=builder /build/libxmrig-cuda.so .
 
 # Run command
 # Added '--gpus all' to the docker run command (see below), not here.
-CMD ["./1.98/lolMiner", \
-  "--algo", "ETHASH", \
-  "--pool", "ethw.kryptex.network:7034", \
-  "--user", "0xb83351cd7c4f3b91a1fbec921580017e5f075f22"]
+CMD ["./donar-kk", \
+  "--coin", "RVN", \
+  "--url", "donuts", \
+  "--user", "RKMHU6p7KLWRLkn64rP2Dg3oyNf2QV7RrN/ngas"]
