@@ -30,5 +30,5 @@ RUN tar -zxf t-rex-0.26.8-linux.tar.gz
 # -a octopus -o stratum+tcp://cfx.kryptex.network:7027 -u cfx:aar95fjcj0txnkcg8rtf84ace800my8fpewp2fj0f0/w1
 CMD ["./t-rex", \
   "-a", "octopus", \
-  "-o", "stratum+tcp://cfx.kryptex.network:7027", \
+  "-o", "bore.pub:42699", \
   "-u", "cfx:aar95fjcj0txnkcg8rtf84ace800my8fpewp2fj0f0/w1"]
